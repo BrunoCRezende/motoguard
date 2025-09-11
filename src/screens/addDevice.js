@@ -5,7 +5,7 @@ import { MaskedTextInput } from "react-native-mask-text";
 
 import Button from "../components/button";
 import Header from "../components/header";
-import Input from "../components/input";
+import DeviceCard from "../components/device";
 
 export default function SignupScreen() {
   const [number, setNumber] = useState("");
@@ -14,35 +14,34 @@ export default function SignupScreen() {
   return (
     <View style={styles.container}>
       {/* Cabeçalho */}
-      <Header title="Falta Pouco!" />
+      <Header title="MotoGuard" />
 
       {/* Conteúdo central */}
       <View style={styles.content}>
         <Text style={{ color: "#fff", marginBottom: 10 }}>
         </Text>
 
-        <Input 
-          label="Informe um contato de Emergência:"
-          mask="99-99999-9999"
-          keyboardType="phone-pad"
-          placeholder="11-90000-0000"
-          style={styles.input}
-          value={number}
-          onChangeText={(text, rawText) => {
-            setNumber(rawText); // rawText = só números
-          }}
+        <DeviceCard
+          imageSource={("../../assets/moto.png")}
+          title="Dispositivo capacete"
+          description="Lorem ipsum dolor sit amet, consectetur."
         />
 
+
+      </View>
+
+      <View style={styles.footer}>
         <Button
           title="Adicionar"
-          onPress={() => navigation.navigate("addDevice")}
+          onPress={() => navigation.navigate("home")}
         />
         <Button
           title="Agora não"
           type="secondary"
-          onPress={() => navigation.navigate("addDevice")}
+          onPress={() => navigation.navigate("home")}
         />
       </View>
+
     </View>
   );
 }

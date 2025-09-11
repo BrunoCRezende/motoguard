@@ -9,6 +9,9 @@ import Register from "./screens/register";
 import Login from "./screens/login";
 import Password from "./screens/password";
 import emergencyNum from "./screens/emergencyNum";
+import addDevice from "./screens/addDevice";
+import home from "./screens/home";
+
 
 enableScreens(true); // ativa screens nativas para reduzir flash
 
@@ -74,6 +77,14 @@ export default function App() {
         <Stack.Screen
           name="emergencyNum"
           component={screenWrapper(emergencyNum)}
+        />
+        <Stack.Screen
+          name="addDevice"
+          component={screenWrapper(addDevice)}
+        />
+          <Stack.Screen
+          name="home"
+          component={screenWrapper(home)}
         />
       </Stack.Navigator>
     </NavigationContainer>

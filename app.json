@@ -25,7 +25,8 @@
         "backgroundColor": "#1e1e1e"
       },
       "userInterfaceStyle": "dark",
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/favicon.png"

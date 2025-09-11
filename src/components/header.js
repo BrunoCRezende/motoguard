@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 15,
     paddingHorizontal: 10,
     marginBottom:20
   },

@@ -14,13 +14,6 @@ export default function SignupScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Conteúdo que sobe com o teclado */}
-      <KeyboardAwareScrollView
-        contentContainerStyle={styles.scrollContent}
-        enableOnAndroid={true}
-        extraScrollHeight={Platform.OS === "ios" ? 20 : 50}
-        keyboardShouldPersistTaps="handled"
-      >
         <Header title="Seja Bem-Vindo!" />
 
         <View style={styles.content}>
@@ -45,8 +38,6 @@ export default function SignupScreen() {
             }
           />
         </View>
-      </KeyboardAwareScrollView>
-
       {/* Footer fixo embaixo da tela */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>Já tem uma conta?</Text>
@@ -62,28 +53,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E1E1E",
-  },
-  scrollContent: {
-    flexGrow: 1,
     padding: 20,
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
+
   },
   content: {
-    marginTop: 60,
+    flex: 1,
     alignItems: "center",
+    marginTop:60,
   },
   footer: {
     alignItems: "center",
-    padding: 20,
+    marginBottom: 20,
   },
   footerText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize:16,
     marginBottom: 5,
   },
   footerLink: {
     color: "#fff",
-    fontSize: 16,
+    fontSize:16,
     fontWeight: "bold",
   },
 });
