@@ -1,13 +1,23 @@
-import React from "react";
-import { Image, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Pressable } from "react-native";
 
 export default function Sensor({ width = 100, height = 40 }) {
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
-    <Image
-      source={require("../../assets/Vector.png")}
-      style={[styles.box, { width, height }]}
-      resizeMode="stretch" // força a imagem a preencher exatamente
-    />
+    <Pressable
+      onPressIn={() => setIsPressed(true)}
+      onPressOut={() => setIsPressed(false)}
+    >
+      <Image
+        source={require("../../assets/Vector.png")}
+        style={[
+          styles.box,
+          { width, height, tintColor: isPressed ? "#DA4F4F" : undefined },
+        ]}
+        resizeMode="stretch"
+      />
+    </Pressable>
   );
 }
 
