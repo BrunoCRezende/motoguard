@@ -1,71 +1,81 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, Text, Image, StyleSheet, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { MaskedTextInput } from "react-native-mask-text";
+
 
 import Button from "../components/button";
-import Header from "../components/header";
 import DeviceCard from "../components/device";
+import Header from "../components/header";
+import Sensor from "../components/sensor";
 
-export default function SignupScreen() {
-  const [number, setNumber] = useState("");
+export default function WelcomeScreen() {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      {/* Cabeçalho */}
-      <Header title="MotoGuard" />
+      <View style={styles.container}>
+        <Header title="MotoGuard"/>
+        
+        {/* Conteúdo central */}
+        <View style={styles.content}>
+          <Image
+            source={require("../../assets/frontViewBike.png")}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+           <Sensor width={150} height={35} />
+           <Sensor width={200} height={45} />
+           <Sensor width={250} height={55} />
+        </View>
 
-      
-
-      <View style={styles.footer}>
-        <Button
-          title="Adicionar"
-          onPress={() => navigation.navigate("register")}
-        />
-        <Button
-          title="Agora não"
-          type="secondary"
-          onPress={() => navigation.navigate("register")}
-        />
+        {/* Rodapé com botões */}
+        <View style={styles.footer}>
+          <View style={styles.align}>
+            <Text style={styles.text}>Dispositivos Ativos:</Text>
+          </View>
+          <DeviceCard
+            imageSource={("../../assets/moto.png")}
+            title="Dispositivo capacete"
+            description="Lorem ipsum dolor sit amet, consectetur."
+          />
+          <Button
+            title="Adicionar Dispositivos"
+            type="secondary"
+            onPress={() => navigation.navigate("addDevice")}
+          />
+        </View>
       </View>
-
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#1E1E1E", // fundo escuro
     padding: 20,
-    justifyContent: "space-between",
   },
   content: {
     flex: 1,
     alignItems: "center",
     marginTop: 60,
   },
-  input: {
-    backgroundColor: "#fff",
-    width: "100%",
-    padding: 12,
-    borderRadius: 8,
-    fontSize: 16,
-    marginBottom: 20,
-  },
   footer: {
+    marginTop: "auto", // garante que fique no fim da tela
     alignItems: "center",
     marginBottom: 20,
   },
-  footerText: {
-    color: "#fff",
-    fontSize: 16,
-    marginBottom: 5,
+  logo: {
+    width: 149,
+    height: 137,
+    marginBottom: 20,
   },
-  footerLink: {
-    color: "#fff",
-    fontSize: 16,
+  text: {
+    fontSize: 23,
     fontWeight: "bold",
+    color: "#fff",
   },
+  align:{
+    width:"100%",
+    justifyContent: "flex-start",
+    marginVertical: 10
+  }
 });

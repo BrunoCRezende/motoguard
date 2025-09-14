@@ -30,7 +30,7 @@ export default function SignupScreen() {
           value={password}
           onChangeText={setPassword}
         />
-        <Button title="Próximo" onPress={() => navigation.navigate("password")} />
+        <Button title="Próximo" onPress={() => navigation.navigate("home")} />
       </View>
 
       {/* Rodapé */}

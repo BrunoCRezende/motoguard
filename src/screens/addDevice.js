@@ -26,8 +26,6 @@ export default function SignupScreen() {
           title="Dispositivo capacete"
           description="Lorem ipsum dolor sit amet, consectetur."
         />
-
-
       </View>
 
       <View style={styles.footer}>
